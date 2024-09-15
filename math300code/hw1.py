@@ -1,5 +1,6 @@
 import cmath
 import numpy as np
+import matplotlib.pyplot as plt
 
 num_Qs = 9
 ansDict = {}
@@ -20,6 +21,14 @@ def q1():
     q1dict['q1c'] = z**3
     q1dict['q1d'] = (w**2 + w).real
     q1dict['q1e'] = z**2 + z.conjugate() + complex(0,1)
+
+    x = [ele.real for ele in q1dict.values()]
+    y = [ele.imag for ele in q1dict.values()]
+
+    plt.scatter(x,y), plt.xlim(-15,15), plt.ylim(-15,15), plt.axhline(0),plt.axvline(0)
+    for i in range(len(x)):
+        plt.annotate(str(q1dict[f'q1{letterArr[i]}']), (x[i]+1,y[i]))
+    plt.show()
 
     return q1dict
 
@@ -48,4 +57,4 @@ def printAns(qnum='all'):
         for sub_q in ansDict[qnum]:
             print(f'{sub_q}: {ansDict[qnum][sub_q]}')
 
-printAns('Q1')
+printAns()
