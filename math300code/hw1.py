@@ -30,17 +30,22 @@ def q2():
     q2dict = ansDict['Q2']
 
     q2dict['q2b'] = f'Re(z): {z.real}, Im(z): {round(z.imag,3)}'
-    q2dict['q2c'] = f'Re(w): {w.real}, Im(z): {w.imag}'
+    q2dict['q2c'] = f'Re(w): {round(w.real,3)}, Im(z): {round(w.imag,3)}'
 
     return q2dict
 
 q1dict = q1()
 q2dict = q2()
 
-def printAns():
-    for q in ansDict:
-        print('\n--=--' + q + '--=--\n')
-        for sub_q in ansDict[q]:
-            print(f'{sub_q}: {ansDict[q][sub_q]}')
+def printAns(qnum='all'):
+    if qnum == 'all':
+        for q in ansDict:
+            print('\n--=-- ' + q + ' --=--\n')
+            for sub_q in ansDict[q]:
+                print(f'{sub_q}: {ansDict[q][sub_q]}')
+    else:
+        print('\n--=-- Q' + qnum + ' --=--\n')
+        for sub_q in ansDict[qnum]:
+            print(f'{sub_q}: {ansDict[qnum][sub_q]}')
 
-printAns()
+printAns('Q1')
