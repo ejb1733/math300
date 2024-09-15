@@ -10,7 +10,7 @@ for i in range(9):
     subq_dict = {}
     ansDict[f'Q{i+1}'] = subq_dict
 
-def q1():
+def q1(PLOT=True):
     z = complex(1,2)
     w = complex(2,-1)
 
@@ -25,10 +25,11 @@ def q1():
     x = [ele.real for ele in q1dict.values()]
     y = [ele.imag for ele in q1dict.values()]
 
-    plt.scatter(x,y), plt.xlim(-15,15), plt.ylim(-15,15), plt.axhline(0),plt.axvline(0)
-    for i in range(len(x)):
-        plt.annotate(str(q1dict[f'q1{letterArr[i]}']), (x[i]+1,y[i]))
-    plt.show()
+    if PLOT:
+        plt.scatter(x,y), plt.xlim(-15,15), plt.ylim(-15,15), plt.axhline(0),plt.axvline(0)
+        for i in range(len(x)):
+            plt.annotate(str(q1dict[f'q1{letterArr[i]}']), (x[i]+1,y[i]))
+        plt.show()
 
     return q1dict
 
@@ -43,7 +44,7 @@ def q2():
 
     return q2dict
 
-q1dict = q1()
+q1dict = q1(PLOT=False)
 q2dict = q2()
 
 def printAns(qnum='all'):
