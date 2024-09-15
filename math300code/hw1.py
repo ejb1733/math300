@@ -1,21 +1,29 @@
 import cmath
 import numpy as np
 
+num_Qs = 9
+ansDict = {}
 letterArr = ['a','b','c','d','e']
 
-# nqs: number of sub-questions
+for i in range(9):
+    subq_dict = {}
+    ansDict[f'Q{i+1}'] = subq_dict
+
 def q1():
     z = complex(1,2)
     w = complex(2,-1)
 
-    ansDict = {}
+    q1dict = ansDict['Q1']
 
-    ansDict['q1a'] = z + 3*w
-    ansDict['q1b'] = w.conjugate() - z
-    ansDict['q1c'] = z**3
-    ansDict['q1d'] = (w**2 + w).real
-    ansDict['q1e'] = z**2 + z.conjugate() + complex(0,1)
+    q1dict['q1a'] = z + 3*w
+    q1dict['q1b'] = w.conjugate() - z
+    q1dict['q1c'] = z**3
+    q1dict['q1d'] = (w**2 + w).real
+    q1dict['q1e'] = z**2 + z.conjugate() + complex(0,1)
 
-    return ansDict
+def q2():
+    z = complex(3,5)/complex(1,7)
+    w = (complex(-1,np.sqrt(3))/2)**3
 
-print(q1())
+q1()
+print(ansDict['Q1'])
